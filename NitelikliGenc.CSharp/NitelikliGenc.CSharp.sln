@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NitelikliGenc.CSharp.Console", "NitelikliGenc.CSharp.Console\NitelikliGenc.CSharp.Console.csproj", "{7F128EE5-2B8D-43A7-8D52-66FEE7DD53DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F128EE5-2B8D-43A7-8D52-66FEE7DD53DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F128EE5-2B8D-43A7-8D52-66FEE7DD53DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F128EE5-2B8D-43A7-8D52-66FEE7DD53DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F128EE5-2B8D-43A7-8D52-66FEE7DD53DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
