@@ -2,5 +2,5 @@ namespace NitelikliGenc.DatabasePoC.Database.Models;
 
 public class BaseClass
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 }

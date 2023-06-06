@@ -7,40 +7,19 @@ namespace NitelikliGenc.DatabasePoC.Database.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class ProductController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-    
     private readonly DataContext _dataContext;
     
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger, DataContext dataContext)
+    public ProductController(DataContext dataContext)
     {
-        _logger = logger;
         _dataContext = dataContext;
     }
-    //
-    // [HttpGet(Name = "GetWeatherForecast")]
-    // public IEnumerable<WeatherForecast> Get()
-    // {
-    //     return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-    //         {
-    //             Date = DateTime.Now.AddDays(index),
-    //             TemperatureC = Random.Shared.Next(-20, 55),
-    //             Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-    //         })
-    //         .ToArray();
-    // }
-    //
     
     [HttpGet]
     public IActionResult GetAll()
     {
-        var products = _dataContext.Products.ToList();
+        var products = _dataContext.Products.Include(x => x.Category).ToList();
         return Ok(products);
     }
 
@@ -48,13 +27,13 @@ public class WeatherForecastController : ControllerBase
     public IActionResult Post(ProductDto productDto)
     {
         var category = _dataContext.Categories.FirstOrDefault(x => x.Id == productDto.CategoryId);
+        if (category == null) return NotFound();
         
         var product = new Product()
         {
             Id = productDto.Id,
             Name = productDto.Name,
             Price = productDto.Price,
-            CategoryId = category.Id,
             Category = category
         };
         
@@ -70,7 +49,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-        var product =_dataContext.Products.FirstOrDefault(x => x.Id == id);
+        var product =_dataContext.Products.Include(x => x.Category).FirstOrDefault(x => x.Id == id);
         // var product = _dataContext.Products.Where(x => x.Id == id).FirstOrDefault();
         if (product == null)
         {
@@ -84,9 +63,6 @@ public class WeatherForecastController : ControllerBase
         public string Name { get; set; }
         public double Price { get; set; }
         public int Id { get; set; }
-        
         public int CategoryId { get; set; }
     }
-    
-    
 }

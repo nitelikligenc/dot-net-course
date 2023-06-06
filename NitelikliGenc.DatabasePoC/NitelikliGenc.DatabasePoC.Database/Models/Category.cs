@@ -1,7 +1,7 @@
 namespace NitelikliGenc.DatabasePoC.Database.Models;
 
-public class Category
+public class Category : BaseClass
 {
-    public int Id { get; set; }
-    public string CatName { get; set; }
+    public string Name { get; set; }
+    public virtual ICollection<Product> Products { get; set; }
 }
