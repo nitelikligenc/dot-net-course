@@ -8,6 +8,7 @@ Projeler
 
 Kaynaklar
 * Resources/Presentations => Eğitimlerde kullandığımız tüm sunumlar.
+* Resources/Links.txt => Önerdiğimiz eğitim videolarının linkleri.
 
 Notlar
 * Konularımızda ilerledikçe farklı proje ve kaynak eklemeleri olacak. Her ders sonunda repository ve readme dosyası güncellenecek.
