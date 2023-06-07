@@ -1,0 +1,9 @@
+* C#
+	- https://www.youtube.com/playlist?list=PLURN6mxdcwL960S-bRuf1F6K09yzNjgcn
+	- https://www.youtube.com/playlist?list=PLXuv2PShkuHymyOtQXKd95LZSTupg28DH
+
+* ORM, Entity Framework
+	- https://www.youtube.com/playlist?list=PLQVXoXFVVtp1o3nq3-IXv42bPaFlzroBE
+
+* .NET Core
+	- To Be Determined
