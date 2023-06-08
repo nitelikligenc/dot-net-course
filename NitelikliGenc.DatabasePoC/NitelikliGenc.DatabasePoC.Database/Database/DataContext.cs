@@ -15,4 +15,10 @@ public class DataContext : DbContext
 
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Employee> Employees { get; set; }
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<Authors> Authors { get; set; }
+    public DbSet<Books> Books { get; set; }
 }
