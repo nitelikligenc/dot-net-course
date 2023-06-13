@@ -3,12 +3,13 @@ Nitelikli Genç / .NET Core ile Web Uygulamaları Geliştirme
 
 Projeler
 * NitelikliGenc.CSharp => C# konuları için oluşturulmuş proje.
-* NitelikliGenc.WebAPI => .NET Core / Web API konuları için oluşturulmuş proje. (Şu an sadece solution oluşturuldu, sonraki ders proje eklenecek.)
+* NitelikliGenc.WebAPI => .NET Core / Web API konuları için oluşturulmuş proje.
 * NitelikliGenc.DatabasePoC => Database modelleri, migration işlemleri gibi konuların işlenmesi için oluşturulmuş proje.
 
 Kaynaklar
 * Resources/Presentations => Eğitimlerde kullandığımız tüm sunumlar.
 * Resources/Links.txt => Önerdiğimiz eğitim videolarının linkleri.
+* Resources/Homeworks => Ödevler.
 
 Notlar
 * Konularımızda ilerledikçe farklı proje ve kaynak eklemeleri olacak. Her ders sonunda repository ve readme dosyası güncellenecek.
