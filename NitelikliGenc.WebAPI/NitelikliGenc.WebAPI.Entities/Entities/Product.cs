@@ -21,4 +21,6 @@ public class Product : BaseEntity
     
     [Required(ErrorMessage = "Stock is required.")]
     public int Stock { get; set; }
+
+    public Guid CategoryId { get; set; }
 }

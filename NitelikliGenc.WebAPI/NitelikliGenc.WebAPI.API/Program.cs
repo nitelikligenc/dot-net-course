@@ -1,5 +1,6 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using NitelikliGenc.WebAPI.Business.Services.Categories;
 using NitelikliGenc.WebAPI.Business.Services.Products;
 using NitelikliGenc.WebAPI.DataAccess;
 using NitelikliGenc.WebAPI.DataAccess.Repositories;
@@ -15,6 +16,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryServices, CategoryServices>();
 
 builder.Services.AddDbContext<DataContext>(x =>
     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
