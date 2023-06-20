@@ -13,3 +13,4 @@ Kaynaklar
 
 Notlar
 * Konularımızda ilerledikçe farklı proje ve kaynak eklemeleri olacak. Her ders sonunda repository ve readme dosyası güncellenecek.
+* NitelikliGenc.WebAPI projesi içerisinde => farklı isimlendirme yaklaşımlarına, farklı dizin yapısı yaklaşımlarına vb. değindiğimiz için katmanlardaki dizin ve isimlendirme farklılıkları kafanızı karıştırmasın. (DataAccess katmanında tüm repositoryleri tek klasör altında toplarken, Business katmanında servisleri modül isimlerine göre farklı klasörler altında toplamamız gibi.)

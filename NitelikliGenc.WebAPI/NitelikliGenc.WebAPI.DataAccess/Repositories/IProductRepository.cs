@@ -2,13 +2,6 @@ using NitelikliGenc.WebAPI.Entities.Entities;
 
 namespace NitelikliGenc.WebAPI.DataAccess.Repositories;
 
-public interface IProductRepository
+public interface IProductRepository : IGenericRepository<Product>
 {
-    Task<Product> GetByIdAsync(Guid id);
-    
-    Task<IEnumerable<Product>> GetAllAsync();
-
-    Task AddAsync(Product product);
-
-    Task<bool> SaveAllAsync();
 }

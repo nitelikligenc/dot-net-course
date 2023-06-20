@@ -5,8 +5,8 @@ namespace NitelikliGenc.WebAPI.Business.Services.Categories;
 
 public class CategoryServices : ICategoryServices
 {
-    private readonly ICategoryRepository _repository;
-    public CategoryServices(ICategoryRepository repository)
+    private readonly IGenericRepository<Category> _repository;
+    public CategoryServices(IGenericRepository<Category> repository)
     {
         _repository = repository;
     }
