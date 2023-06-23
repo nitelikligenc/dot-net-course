@@ -28,4 +28,15 @@ public class ProductService : IProductService
         await _repository.SaveAllAsync();
         return product;
     }
+    public Task<Product> DeleteAsync(Guid id)
+    {
+        return _repository.DeleteAsync(id);
+    }
+
+    public async Task<Product> UpdateAsync(Product product)
+    {
+        await _repository.UpdateAsync(product);
+        await _repository.SaveAllAsync();
+        return product;
+    }
 }

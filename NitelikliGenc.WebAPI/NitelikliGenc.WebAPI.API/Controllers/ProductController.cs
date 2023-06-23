@@ -34,10 +34,39 @@ public class ProductController : ControllerBase
         return Ok(_mapper.Map<List<ProductForListDto>>(products));
     }
     
-    [HttpPost]
-    public async Task<IActionResult> Add(Product product)
+    // [HttpPost]
+    // public async Task<IActionResult> Add(Product product)
+    // {
+    //     await _service.AddAsync(product);
+    //     return Ok(product);
+    // }
+
+    [HttpPost("AddProduct")]
+    public async Task<IActionResult> Add(ProductForPostDto productForPostDto)
     {
-        await _service.AddAsync(product);
-        return Ok(product);
+        var ppd = _mapper.Map<Product>(productForPostDto);
+        await _service.AddAsync(ppd);
+        return Ok();
+    }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var result = await _service.DeleteAsync(id);
+        if (result == null)
+        {
+            return NotFound();
+        }
+
+        return NoContent();
+    }
+    
+    [HttpPut]
+    public async Task<IActionResult> Update(ProductForUpdateDto productForUpdateDto)
+    {
+        var pud = _mapper.Map<Product>(productForUpdateDto);
+        await _service.UpdateAsync(pud);
+        return NoContent();
+
     }
 }

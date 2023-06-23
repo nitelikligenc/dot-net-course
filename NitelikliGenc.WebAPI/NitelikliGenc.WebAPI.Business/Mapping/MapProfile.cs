@@ -12,6 +12,10 @@ public class MapProfile : Profile
             opt => opt.MapFrom(src => $"{src.Price} {src.Currency}"));
         
         CreateMap<Product, ProductForDetailDto>().ReverseMap();
+        CreateMap<Category, CategoryForPostDto>().ReverseMap();
+        CreateMap<Product, ProductForPostDto>().ReverseMap();
+        CreateMap<Category, CategoryForUpdateDto>().ReverseMap();
+        CreateMap<Product, ProductForUpdateDto>().ReverseMap();
     }
     
 }

@@ -1,4 +1,5 @@
 using NitelikliGenc.WebAPI.DataAccess.Repositories;
+using NitelikliGenc.WebAPI.Entities.DTOs;
 using NitelikliGenc.WebAPI.Entities.Entities;
 
 namespace NitelikliGenc.WebAPI.Business.Services.Categories;
@@ -24,6 +25,18 @@ public class CategoryServices : ICategoryServices
     public async Task<Category> AddAsync(Category category)
     {
         await _repository.AddAsync(category);
+        await _repository.SaveAllAsync();
+        return category;
+    }
+
+    public Task<Category> DeleteAsync(Guid id)
+    {
+        return _repository.DeleteAsync(id);
+    }
+
+    public async Task<Category> UpdateAsync(Category category)
+    {
+        await _repository.UpdateAsync(category);
         await _repository.SaveAllAsync();
         return category;
     }
