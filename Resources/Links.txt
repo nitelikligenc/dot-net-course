@@ -6,4 +6,12 @@
 	- https://www.youtube.com/playlist?list=PLQVXoXFVVtp1o3nq3-IXv42bPaFlzroBE
 
 * .NET Core
-	- To Be Determined
+	- https://www.udemy.com/user/sukru-uzun-2/ (Ücretsiz)
+	- https://www.udemy.com/course/asp-net-core-api-web-cok-katmanli-mimari-api-best-practices/ (Ücretli) (Detaylı konu anlatımı değil, Best Practices kursu) (Web API + MVC)
+	- https://www.youtube.com/playlist?list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_
+	- https://www.btkakademi.gov.tr/portal/course/asp-net-core-web-api-23993 (Detaylı inceleyemedim, beğenirseniz faydalanabilirsiniz)
+
+* Algoritma
+	- https://www.btkakademi.gov.tr/portal/course/algoritma-tasarimi-5092 (C# ile algoritma eğitimi. Bu veya benzer bir kurs ile algoritma çalışmanız faydalı olacaktır.)
+
+	
