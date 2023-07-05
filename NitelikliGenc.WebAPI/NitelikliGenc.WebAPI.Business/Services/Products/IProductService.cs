@@ -1,14 +1,9 @@
+using NitelikliGenc.WebAPI.Business.Services.Abstract;
+using NitelikliGenc.WebAPI.DataAccess.Repositories;
 using NitelikliGenc.WebAPI.Entities.Entities;
 
 namespace NitelikliGenc.WebAPI.Business.Services.Products;
 
-public interface IProductService
+public interface IProductService : IBaseService<Product>
 {
-    Task<Product> GetByIdAsync(Guid id);
-    
-    Task<IEnumerable<Product>> GetAllAsync();
-
-    Task<Product> AddAsync(Product product);
-    Task<Product> DeleteAsync(Guid id);
-    Task<Product> UpdateAsync(Product product);
 }

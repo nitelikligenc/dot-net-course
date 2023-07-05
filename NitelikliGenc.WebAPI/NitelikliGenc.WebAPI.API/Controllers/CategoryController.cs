@@ -1,6 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using NitelikliGenc.WebAPI.Business.Services.Categories;
+using NitelikliGenc.WebAPI.Business.Services.Abstract;
 using NitelikliGenc.WebAPI.Entities.DTOs;
 using NitelikliGenc.WebAPI.Entities.Entities;
 
@@ -9,9 +9,9 @@ namespace NitelikliGenc.WebAPI.API.Controllers;
 [Route("[controller]")]
 public class CategoryController : ControllerBase
 {
-    private readonly ICategoryServices _services;
+    private readonly IBaseService<Category> _services;
     private readonly IMapper _mapper;
-    public CategoryController(ICategoryServices services, IMapper mapper)
+    public CategoryController(IBaseService<Category> services, IMapper mapper)
     {
         _services = services;
         _mapper = mapper;
@@ -32,28 +32,33 @@ public class CategoryController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Add(CategoryForPostDto categoryForPostDto)
     {
-        var _category = _mapper.Map<Category>(categoryForPostDto);
-        await _services.AddAsync(_category);
-        return Ok(_category);
+        var category = _mapper.Map<Category>(categoryForPostDto);
+        await _services.AddAsync(category);
+        return Ok(category);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var result = await _services.DeleteAsync(id);
-        if (result == null)
+        var category = await _services.GetByIdAsync(id);
+        if (category == null)
         {
             return NotFound();
         }
-
-        return NoContent();
+        return await _services.DeleteAsync(id) ? NoContent() : throw new Exception();
     }
-    [HttpPut("/PutDto")]
-    public async Task<IActionResult> Update(CategoryForUpdateDto productForUpdateDto)
+    
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(Guid id, CategoryForUpdateDto categoryForUpdateDto)
     {
-        var pud = _mapper.Map<Category>(productForUpdateDto);
+        var category = await _services.GetByIdAsync(id);
+        if (category == null)
+        {
+            return NotFound();
+        }
+        var pud = _mapper.Map(categoryForUpdateDto, category);
         await _services.UpdateAsync(pud);
-        return NoContent();
+        return Ok(pud);
 
     }
 }

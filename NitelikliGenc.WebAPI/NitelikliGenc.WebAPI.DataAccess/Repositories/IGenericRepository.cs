@@ -13,6 +13,6 @@ public interface IGenericRepository<T> where T : class
     
     Task<bool> SaveAllAsync();
 
-    Task<T> DeleteAsync(Guid id);
+    Task<bool> DeleteAsync(Guid id);
     Task<T> UpdateAsync(T entity);
 }

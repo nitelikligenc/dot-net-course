@@ -34,14 +34,7 @@ public class ProductController : ControllerBase
         return Ok(_mapper.Map<List<ProductForListDto>>(products));
     }
     
-    // [HttpPost]
-    // public async Task<IActionResult> Add(Product product)
-    // {
-    //     await _service.AddAsync(product);
-    //     return Ok(product);
-    // }
-
-    [HttpPost("AddProduct")]
+    [HttpPost]
     public async Task<IActionResult> Add(ProductForPostDto productForPostDto)
     {
         var ppd = _mapper.Map<Product>(productForPostDto);
@@ -52,21 +45,24 @@ public class ProductController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var result = await _service.DeleteAsync(id);
-        if (result == null)
+        var product = await _service.GetByIdAsync(id);
+        if (product == null)
         {
             return NotFound();
         }
-
-        return NoContent();
+        return await _service.DeleteAsync(id) ? NoContent() : throw new Exception();
     }
     
-    [HttpPut]
-    public async Task<IActionResult> Update(ProductForUpdateDto productForUpdateDto)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(Guid id, ProductForUpdateDto productForUpdateDto)
     {
-        var pud = _mapper.Map<Product>(productForUpdateDto);
+        var product = await _service.GetByIdAsync(id);
+        if (product == null)
+        {
+            return NotFound();
+        }
+        var pud = _mapper.Map(productForUpdateDto, product);
         await _service.UpdateAsync(pud);
-        return NoContent();
-
+        return Ok(pud);
     }
 }
