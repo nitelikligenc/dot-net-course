@@ -16,6 +16,11 @@ public class MapProfile : Profile
         CreateMap<Product, ProductForPostDto>().ReverseMap();
         CreateMap<Category, CategoryForUpdateDto>().ReverseMap();
         CreateMap<Product, ProductForUpdateDto>().ReverseMap();
+        CreateMap<Comment, CommentForPostDto>().ReverseMap();
+        CreateMap<Product, ProductForSummaryDto>().ReverseMap();
+        CreateMap<Comment, CommentForDetailDto>().ReverseMap();
+        CreateMap<Comment, ProductsForCommentById>().ReverseMap();
+        CreateMap<Comment, CommentForUpdateDto>().ReverseMap();
     }
     
 }

@@ -28,7 +28,11 @@ builder.Services.AddScoped<IProductService, ProductService>();
 //builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IGenericRepository<Category>, GenericRepository<Category>>();
 builder.Services.AddScoped<IGenericRepository<Product>, GenericRepository<Product>>();
+builder.Services.AddScoped<IGenericRepository<Comment>, GenericRepository<Comment>>();
+builder.Services.AddScoped<IGenericRepository<Order>, GenericRepository<Order>>();
 builder.Services.AddScoped<IBaseService<Category>, BaseService<Category>>();
+builder.Services.AddScoped<IBaseService<Comment>, BaseService<Comment>>();
+builder.Services.AddScoped<IBaseService<Order>, BaseService<Order>>();
 
 builder.Services.AddDbContext<DataContext>(x =>
     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),

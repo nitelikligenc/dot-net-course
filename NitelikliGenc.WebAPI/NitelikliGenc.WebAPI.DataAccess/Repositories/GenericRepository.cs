@@ -49,4 +49,5 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         await _context.SaveChangesAsync();
         return entity;
     }
+    
 }
