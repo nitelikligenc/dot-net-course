@@ -288,13 +288,14 @@ namespace NitelikliGenc.WebAPI.DataAccess.Migrations
                     b.HasOne("NitelikliGenc.WebAPI.Entities.Entities.Product", null)
                         .WithMany()
                         .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        //.OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NitelikliGenc.WebAPI.Entities.Entities.Tag", null)
                         .WithMany()
                         .HasForeignKey("TagsId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 

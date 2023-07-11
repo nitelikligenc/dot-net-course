@@ -37,4 +37,19 @@ public class DataContext : DbContext
             }
         }
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        
+        modelBuilder.Entity<Comment>()
+            .HasOne(x => x.Product)
+            .WithMany(y => y.Comments)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Product>()
+            .HasMany(x => x.Comments)
+            .WithOne(y => y.Product)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
 }

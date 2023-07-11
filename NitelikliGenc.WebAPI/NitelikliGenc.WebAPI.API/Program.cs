@@ -1,8 +1,10 @@
 using System.Reflection;
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
+using NitelikliGenc.WebAPI.Business.Helpers;
 using NitelikliGenc.WebAPI.Business.Mapping;
 using NitelikliGenc.WebAPI.Business.Services.Abstract;
+using NitelikliGenc.WebAPI.Business.Services.Comments;
 using NitelikliGenc.WebAPI.Business.Services.Concrete;
 using NitelikliGenc.WebAPI.Business.Services.Products;
 using NitelikliGenc.WebAPI.DataAccess;
@@ -23,6 +25,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
+builder.Services.AddScoped<NotFoundFilter>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
 //builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
@@ -33,6 +36,9 @@ builder.Services.AddScoped<IGenericRepository<Order>, GenericRepository<Order>>(
 builder.Services.AddScoped<IBaseService<Category>, BaseService<Category>>();
 builder.Services.AddScoped<IBaseService<Comment>, BaseService<Comment>>();
 builder.Services.AddScoped<IBaseService<Order>, BaseService<Order>>();
+
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
 builder.Services.AddDbContext<DataContext>(x =>
     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),

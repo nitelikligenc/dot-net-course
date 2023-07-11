@@ -1,6 +1,8 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NitelikliGenc.WebAPI.Business.Services.Abstract;
+using NitelikliGenc.WebAPI.Business.Services.Comments;
+using NitelikliGenc.WebAPI.DataAccess.Repositories;
 using NitelikliGenc.WebAPI.Entities.DTOs;
 using NitelikliGenc.WebAPI.Entities.Entities;
 
@@ -9,9 +11,9 @@ namespace NitelikliGenc.WebAPI.API.Controllers;
 [Route("[controller]")]
 public class CommentController: ControllerBase
 {
-    private readonly IBaseService<Comment> _service;
+    private readonly ICommentService _service;
     private readonly IMapper _mapper;
-    public CommentController(IBaseService<Comment> service, IMapper mapper)
+    public CommentController(ICommentService service, IMapper mapper)
     {
         _service = service;
         _mapper = mapper;

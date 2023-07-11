@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NitelikliGenc.WebAPI.Business.Helpers;
 using NitelikliGenc.WebAPI.Business.Services.Products;
 using NitelikliGenc.WebAPI.Entities.DTOs;
 using NitelikliGenc.WebAPI.Entities.Entities;
@@ -42,6 +43,7 @@ public class ProductController : ControllerBase
         return Ok();
     }
     
+    [ServiceFilter(typeof(NotFoundFilter))]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
