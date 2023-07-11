@@ -1,12 +1,16 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NitelikliGenc.WebAPI.Business.Services.Abstract;
 using NitelikliGenc.WebAPI.Entities.DTOs;
 using NitelikliGenc.WebAPI.Entities.Entities;
 
 namespace NitelikliGenc.WebAPI.API.Controllers;
+
+
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class CategoryController : ControllerBase
 {
     private readonly IBaseService<Category> _services;
@@ -23,6 +27,7 @@ public class CategoryController : ControllerBase
         return Ok(await _services.GetByIdAsync(id));
     }
 
+    
     [HttpGet]
     public async Task<IActionResult> GetAllAsync()
     {

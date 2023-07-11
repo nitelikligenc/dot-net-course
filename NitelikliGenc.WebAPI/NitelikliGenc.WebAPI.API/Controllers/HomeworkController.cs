@@ -1,8 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NitelikliGenc.WebAPI.API.Controllers;
+
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class HomeworkController : ControllerBase
 {
     private readonly IConfiguration _configuration;

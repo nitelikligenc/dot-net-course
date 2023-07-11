@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NitelikliGenc.WebAPI.Business.Helpers;
 using NitelikliGenc.WebAPI.Business.Services.Products;
@@ -9,6 +10,7 @@ namespace NitelikliGenc.WebAPI.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class ProductController : ControllerBase
 {
     private readonly IProductService _service;

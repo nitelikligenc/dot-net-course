@@ -1,11 +1,14 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NitelikliGenc.WebAPI.Business.Services.Abstract;
 using NitelikliGenc.WebAPI.Entities.Entities;
 
 namespace NitelikliGenc.WebAPI.API.Controllers;
+
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class OrderController: ControllerBase
 {
     private readonly IBaseService<Order> _service;
