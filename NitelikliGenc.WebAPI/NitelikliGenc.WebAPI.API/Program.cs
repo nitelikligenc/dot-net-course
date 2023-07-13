@@ -46,6 +46,22 @@ builder.Services.AddScoped<IBaseService<Order>, BaseService<Order>>();
 builder.Services.AddScoped<ICommentService, CommentService>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
+builder.Services.AddIdentity<User, Role>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+    options.User.AllowedUserNameCharacters = "huseyinAVCI1234!_*";
+
+    options.Password.RequiredLength = 8;
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(14);
+    options.Lockout.MaxFailedAccessAttempts = 3;
+}).AddEntityFrameworkStores<DataContext>()
+    .AddPasswordValidator<PasswordValidator>()
+    .AddErrorDescriber<ErrorDescriber>();
 //
 builder.Services.AddAuthentication(options =>
 {

@@ -21,6 +21,8 @@ public class MapProfile : Profile
         CreateMap<Comment, CommentForDetailDto>().ReverseMap();
         CreateMap<Comment, ProductsForCommentById>().ReverseMap();
         CreateMap<Comment, CommentForUpdateDto>().ReverseMap();
+
+        CreateMap<User, UserRegisterDto>().ReverseMap();
     }
     
 }

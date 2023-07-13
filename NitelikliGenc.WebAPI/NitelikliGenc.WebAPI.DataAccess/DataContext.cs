@@ -1,10 +1,11 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 using NitelikliGenc.WebAPI.Entities.Entities;
 
 namespace NitelikliGenc.WebAPI.DataAccess;
 
-public class DataContext : DbContext
+public class DataContext : IdentityDbContext<User, Role, string>
 {
     public DataContext(DbContextOptions<DataContext> options) : base(options) { }
     
