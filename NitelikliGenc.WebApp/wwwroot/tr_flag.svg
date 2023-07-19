@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="20" viewBox="0 0 28 20">
+  <defs>
+    <clipPath id="clip-Artboard_1">
+      <rect width="28" height="20"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+    <rect width="28" height="20" fill="#fff"/>
+    <g id="turkey" transform="translate(-1.001 -85.337)">
+      <rect id="Rectangle_602" data-name="Rectangle 602" width="30.001" height="20" transform="translate(0 85.337)" fill="#e30a17"/>
+      <g id="Group_7767" data-name="Group 7767" transform="translate(7.978 89.881)">
+        <path id="Path_2002" data-name="Path 2002" d="M220.786,216.787l1.287,1.774,2.084-.676-1.289,1.772,1.287,1.774-2.084-.678-1.289,1.772v-2.191l-2.084-.679,2.084-.676Z" transform="translate(-210.112 -214.199)" fill="#fff"/>
+        <path id="Path_2003" data-name="Path 2003" d="M108.469,191.3a4.433,4.433,0,1,1,2.109-8.334,5.456,5.456,0,1,0,0,7.8A4.411,4.411,0,0,1,108.469,191.3Z" transform="translate(-101.308 -181.413)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
