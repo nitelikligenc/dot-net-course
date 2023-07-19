@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    font-size: 24px;
+}
+label {
+    width: 150px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 0 12px;
+}
+.name {
+    background: yellow;
+    color: red;
+}
+
+#surmame {
+    background: #0a53be;
+    color: yellow;
+}
+#age {
+    background-color: aliceblue;
+}
+.form-fields {
+    margin: 8px 0;
+}
+form {
+    padding: 8px;
+    outline: #0c4128 dashed medium;
+}
+
+.register:hover {
+    background: #0c4128;
+    color: white;
+}
+
+.reset:hover {
+    background: red;
+    color: #c1d6cc;
+}
+
+.form-group {
+    
+}
+
