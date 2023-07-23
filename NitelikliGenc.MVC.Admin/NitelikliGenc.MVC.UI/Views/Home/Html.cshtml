@@ -1,0 +1,191 @@
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/style.css" >
+</head>
+<body>
+<h1>Yazı Başlık</h1>
+<h2>Yazı Başlık</h2>
+<h3>Yazı Başlık</h3>
+<h4>Yazı Başlık</h4>
+<h5>Yazı Başlık</h5>
+<h6>Yazı Başlık</h6>
+<p>
+    İlk html sayfam
+</p>
+<p>
+    ikinci satır html sayfam
+</p>
+<span>
+    İlk html sayfam
+</span>
+<span>
+    ikinci satır html sayfam
+</span>
+<p></p>
+<h1></h1>
+<br>
+<b>Kalın yazı</b>
+<br>
+<hr>
+<i></i>
+<ul>
+    <li>Bir</li>
+    <li>İki</li>
+    <li>Üç</li>
+</ul>
+<s>Üzeri çizili</s>
+<u>Altı çizili</u>
+<font face="Monotype Corsiva" size="4" color="red">DotNet eğitimi</font>
+
+<OL TYPE="1">
+<LI>KİMYA
+<OL TYPE="A">
+<LI>İNORGANİK
+<LI>ANALİTİK
+</OL>
+<LI>FİZİK
+<OL TYPE="A">
+<LI>DINAMIK
+<LI>STATİK
+</OL>
+<LI>MATEMATİK
+<OL TYPE="A">
+<LI>SAYILAR
+<LI>DİĞER
+<OL TYPE="I">
+<LI>TÜREV
+<LI>İNTEGRAL
+</OL></OL></OL> 
+<br>
+<hr>
+<UL TYPE="DİSC">
+<LI>KİMYA
+<UL TYPE="SQUARE">
+<LI>İNORGANİK
+<LI>ANALİTİK
+</UL>
+<LI>FİZİK
+<UL TYPE="SQUARE">
+<LI>DİNAMİK
+<LI>STATİK
+</UL>
+<LI>MATEMATİK
+<UL TYPE="SQUARE">
+<LI>SAYILAR
+<LI>DİĞER
+<UL TYPE="CIRCLE">
+<LI>TÜREV
+<LI>İNTEGRAL
+</UL></UL></UL> 
+<hr>
+<br>
+<pre>
+Text in a pre element
+is displayed in a fixed-width
+font, and it preserves
+both      spaces and
+line breaks
+</pre>
+<p>
+Text in a pre element
+is displayed in a fixed-width
+font, and it preserves
+both      spaces and
+line breaks
+</p>
+<hr>
+<br>
+<img width="100" height="50" src="~/tr_flag.svg"  alt="tr">
+<a href="https://github.com/nitelikligenc/dot-net-course" target="_blank">Github</a>
+<a href="https://wa.me/+905314571222">Send Message</a>
+<table>
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>Ders adı</th>
+        <th>Sınıf</th>
+        <th>Eğitmen</th>
+        <th>Öğrenci sayısı</th>
+        @* <td>Actions</td> *@
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>html</td>
+        <td>DotNet sınıfı</td>
+        <td>Levent Koman</td>
+        <td>6</td>
+        @* <th>6</th> *@
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Css</td>
+        <td>DotNet sınıfı</td>
+        <td>Levent Koman</td>
+        <td>6</td>
+        @* <th>6</th> *@
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>C#</td>
+        <td>DotNet sınıfı</td>
+        <td>Hüseyiin Avcı</td>
+        <td>12</td>
+        @* <th>6</th> *@
+    </tr>
+    </tbody>
+</table>
+
+<form action="" method="post">
+    <label for="">İsim: </label>    <input type="text" placeholder="İsim giriniz...">
+    <br>
+    <label for="">Soyisim: </label>    <input type="text" placeholder="Soyisim giriniz...">
+    <input type="text" maxlength="5">
+    <input type="text" required="required" placeholder="İsim giriniz...">
+    <input type="text" placeholder="İsim giriniz..." hidden="hidden">
+    <input type="password">
+    <input checked="checked" type="checkbox"> Öğrenci
+    <input disabled="disabled" checked="checked" type="checkbox"> Öğrenci
+    <input name="gender" value="Male" type="radio"> Male
+    <input name="gender" value="Female" type="radio"> Female
+    <button type="button">Kayıt</button>
+    <button type="reset">Reset</button>
+    <textarea name="metin" id="" cols="30" rows="10" placeholder="Adres giriniz"></textarea>
+    <br>
+    <select name="cinsiyet" id="">
+        <option value="Erkek">Erkek</option>
+        <option value="Kadın">Kadın</option>
+        <option value="Other">Other</option>
+    </select>
+    <input type="color">
+    <input type="date">
+    <input type="email">
+    <input type="file">
+    <input type="search">
+</form>
+<br>
+<hr>
+
+<form action="">
+    <div class="form-container">
+            <div class="form-group">
+                <div class="form-fields">
+                    <label class="name" for="">İsim </label>
+                    <input type="text" placeholder="isim giriniz...">
+                </div>
+                <div class="form-fields">
+                    <label id="surmame" class="name" for="">Soyisim </label>
+                    <input type="text" placeholder="Soyisim giriniz...">
+                </div>
+            </div>
+            <div class="custom-btn-group">
+                <button class="register" onblur="alert('Hello')" type="submit">Kayıt</button>
+                <button class="reset" type="reset">Reset</button>
+            </div>
+    </div>
+
+</form>
+</body>
+</html>
