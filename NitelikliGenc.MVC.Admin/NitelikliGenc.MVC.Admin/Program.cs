@@ -1,7 +1,16 @@
+using NitelikliGenc.MVC.Business.Services.Abstract;
+using NitelikliGenc.MVC.Business.Services.Concrete;
+using NitelikliGenc.MVC.DataAccess;
+using NitelikliGenc.MVC.DataAccess.Repositories;
+using NitelikliGenc.MVC.Entities.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataContext>();
+builder.Services.AddScoped<IGenericRepository<Category>, GenericRepository<Category>>();
+builder.Services.AddScoped<IBaseService<Category>, BaseService<Category>>();
 
 var app = builder.Build();
 

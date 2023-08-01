@@ -4,6 +4,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NitelikliGenc.MVC.Admin", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NitelikliGenc.MVC.UI", "NitelikliGenc.MVC.UI\NitelikliGenc.MVC.UI.csproj", "{02505D0E-182A-4A15-A849-AA51A623EF43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NitelikliGenc.MVC.Entities", "NitelikliGenc.MVC.Entities\NitelikliGenc.MVC.Entities.csproj", "{F9A706F3-1747-4BD8-B706-9C8A391979E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NitelikliGenc.MVC.DataAccess", "NitelikliGenc.MVC.DataAccess\NitelikliGenc.MVC.DataAccess.csproj", "{312F2896-B689-497F-9FFA-EC8CB279A2D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NitelikliGenc.MVC.Business", "NitelikliGenc.MVC.Business\NitelikliGenc.MVC.Business.csproj", "{248D45E8-247A-4A13-8BD7-3AA0EF4378A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,17 @@ Global
 		{02505D0E-182A-4A15-A849-AA51A623EF43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02505D0E-182A-4A15-A849-AA51A623EF43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02505D0E-182A-4A15-A849-AA51A623EF43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A706F3-1747-4BD8-B706-9C8A391979E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A706F3-1747-4BD8-B706-9C8A391979E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A706F3-1747-4BD8-B706-9C8A391979E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A706F3-1747-4BD8-B706-9C8A391979E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{312F2896-B689-497F-9FFA-EC8CB279A2D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{312F2896-B689-497F-9FFA-EC8CB279A2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{312F2896-B689-497F-9FFA-EC8CB279A2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{312F2896-B689-497F-9FFA-EC8CB279A2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{248D45E8-247A-4A13-8BD7-3AA0EF4378A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{248D45E8-247A-4A13-8BD7-3AA0EF4378A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{248D45E8-247A-4A13-8BD7-3AA0EF4378A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{248D45E8-247A-4A13-8BD7-3AA0EF4378A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

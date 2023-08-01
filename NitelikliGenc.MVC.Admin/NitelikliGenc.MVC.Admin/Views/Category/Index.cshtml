@@ -1,5 +1,5 @@
 @using NitelikliGenc.MVC.Admin.Controllers
-@model IEnumerable<UserController.User>
+@model IEnumerable<NitelikliGenc.MVC.Entities.Entities.Category>
 <div class="row">
           <div class="col-12">
             <div class="card">
@@ -25,9 +25,6 @@
                     <tr>
                       <th>ID</th>
                       <th>Name</th>
-                      <th>Description</th>
-                      <th>Order</th>
-                      <th>Edit</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -37,9 +34,6 @@
                        <tr>
                          <td>@item.Id</td>
                          <td>@item.Name</td>
-                         <td>@item.Surname</td>
-                         <td>@item.Username</td>
-                         <td>@item.PhoneNUmber</td>
                        </tr>
                      }
                    }
