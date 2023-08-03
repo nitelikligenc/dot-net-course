@@ -1,0 +1,219 @@
+@page
+@model NitelikliGenc.MVC.Admin.Views.Example.Index
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="c#, .net core, kurs, istihdam">
+    <!-- Programın adı başlık olarak yazıldı. -->
+    <title>Nitelikli Genç, Güçlü Denizli</title>
+</head>
+<body>
+<h1>Ders : .NET Core ile web uygulamaları geliştirme.</h1>
+<p>Konu : HTML Temelleri.</p>
+<hr>
+<h2>H2</h2>
+<h3>H3</h3>
+<h4>H4</h4>
+<h5>H5</h5>
+<h6>H6</h6>
+<hr>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<br/>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<hr/>
+<h2>Yazı Kalınlaştırma</h2>
+<p>Morbi <b>gravida</b> mi non <strong>accumsan</strong> pulvinar</p>
+<hr/>
+<h2>Yazı İtalikleştirme</h2>
+<p>Morbi <i>gravida</i> mi non <em>accumsan</em> pulvinar</p>
+<hr/>
+<h2>Yazı Altını Çizme</h2>
+<p>Morbi <u>gravida</u> mi non <ins>accumsan</ins> pulvinar</p>
+<hr/>
+<h2>Üs Alma</h2>
+<p>x <sup>2</sup></p>
+<hr/>
+<h2>Alt indis</h2>
+<p>x <sub>2</sub></p>
+<hr/>
+<h2>Yazı Üstünü Çizme</h2>
+<p>Morbi <s>gravida</s> mi non <del>accumsan</del> pulvinar</p>
+<hr/>
+<h2>Yazı işaretleme</h2>
+<p>Morbi <mark>gravida</mark> mi non <mark>accumsan</mark> pulvinar</p>
+<hr>
+<h2>Alışveriş Listesi</h2>
+<ul>
+    <li> Elma </li>
+    <li> Domates </li>
+    <ul>
+        <li> Köy Domatesi </li>
+        <li><p> x Domates </p></li>
+    </ul>
+    <li> Süt Ürünleri</li>
+    <ul>
+        <li> Yoğurt </li>
+        <li> Peynir </li>
+    </ul>
+</ul>
+<hr/>
+<h2>Alışveriş Listesi</h2>
+<ol>
+    <li> Elma </li>
+    <li> Domates </li>
+    <ol>
+        <li> Köy Domatesi </li>
+        <li><p> x Domates </p></li>
+    </ol>
+    <li> Süt Ürünleri</li>
+    <ol>
+        <li> Yoğurt </li>
+        <li> Peynir </li>
+    </ol>
+</ol>
+<p> Büyük Harf </p>
+<ol type="A">
+    <li> 1</li>
+    <li> 2</li>
+</ol>
+<p> Küçük Harf</p>
+<ol type="a">
+    <li> 1</li>
+    <li> 2</li>
+</ol>
+<p> Büyük Roma Rakamı</p>
+<ol type="I">
+    <li> 1</li>
+    <li> 2</li>
+</ol>
+<p> Küçük Roma Rakamı</p>
+<ol type="i">
+    <li> 1</li>
+    <li> 2</li>
+</ol>
+<hr/>
+<img src="https://fastly.picsum.photos/id/1023/300/300.jpg?hmac=wt1IR3GB0e7s_E3U5VsQIwi7Pl4Jfg7IaTE4cRKTYgI" width="300" height="300">
+<img src="https://fastly.picsum.photos/id/1023/300/300.jpg?hmac=wt1IR3GB0e7s_E3U5VsQIwi7Pl4Jfg7IaTE4cRKTYgI" width="300" height="300" alt="image">
+<hr/>
+<a href="https://localhost:7082/" target="_blank"> Blog </a>
+<br/>
+<a href="https://fastly.picsum.photos/id/1023/300/300.jpg?hmac=wt1IR3GB0e7s_E3U5VsQIwi7Pl4Jfg7IaTE4cRKTYgI"> Image </a>
+<br/>
+<a href="https://fastly.picsum.photos/id/1023/300/300.jpg?hmac=wt1IR3GB0e7s_E3U5VsQIwi7Pl4Jfg7IaTE4cRKTYgI" target="_blank">
+    <img src="https://fastly.picsum.photos/id/1023/300/300.jpg?hmac=wt1IR3GB0e7s_E3U5VsQIwi7Pl4Jfg7IaTE4cRKTYgI">
+</a>
+<hr/>
+<table border="2">
+    <thead>
+    <tr>
+        <th> Kurs Adı </th>
+        <th> Kurs Saati </th>
+        <th> Kurs Adedi </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td> .NET Core ile Web Uygulamaları Geliştirme</td>
+        <td> 100 </td>
+        <td> 1 </td>
+    </tr>
+    <tr>
+        <td> PHP </td>
+        <td> 20 </td>
+        <td rowspan="2"> 1 </td>
+    </tr>
+    <tr>
+        <td colspan="2"> .NET Core ile MVC uygulamaları geliştirme</td>
+    </tr>
+    </tbody>  
+</table>
+<hr/>
+<form>
+    <div>
+        <label for="name"> Ad : </label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <label for="surname"> Soyad : </label>
+        <input type="text" id="surname">
+    </div>
+    <div>
+        <p> En sevdiğiniz programlama dili</p>
+        
+        <input type="radio" name="programming" id="csharp">
+        <label for="csharp">C-SHARP</label>
+
+        <input type="radio" name="programming" id="java">
+        <label for="java">JAVA</label>
+
+        <input type="radio" name="programming" id="php">
+        <label for="php">PHP</label>
+    </div>
+    
+    <div>
+        <label for="intro"> Kendinizi tanıtın:</label>
+        <textarea id="intro" placeholder="Kendinizi tanıtan kısa bir yazı ekleyin..."></textarea>
+    </div>
+    
+    <div>
+        <p> En sevdiğiniz programlama dili</p>
+        
+        <input type="checkbox" id="csharp2">
+        <label for="csharp2">C-SHARP</label>
+
+        <input type="checkbox" id="java2">
+        <label for="java2">JAVA</label>
+
+        <input type="checkbox" id="php2">
+        <label for="php2">PHP</label>
+        </div>
+    <div>
+        <label for="cities"> Şehir</label>
+        <select id="cities">
+            <option value="20"> Denizli </option>
+            <option value="64"> Uşak </option>
+            <option value="47"> Mardin </option>
+            <option value="58"> Sivas </option>
+            <option value="65"> Van </option>
+            <option value="66"> Yozgat </option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="mail"> Email: </label>
+        <input type="email" id="mail">
+    </div>
+    
+    <div>
+        <label for="pwd"> Şifre: </label>
+        <input type="password" id="pwd">
+    </div>
+    
+    <div>
+        <label for="birthday"> Doğum Tarihi: </label>
+        <input type="date" id="birthday">
+    </div>
+    
+    <button type="submit"> Kaydet </button>
+    <button type="reset"> Temizle </button>
+</form>
+<hr/>
+<iframe width="790" height="444" src="https://www.youtube.com/embed/WjF_BcYeKBo" title="📺 Geniş Özet | Galatasaray 1-0 FK Žalgiris Vilnius #UCL" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>">
+<hr/>
+<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/WjF_BcYeKBo?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"></iframe></div>
+<hr/>
+<p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48152.69528633698!2d29.01271007818618!3d41.035243200158526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac826d524c9f1%3A0xc14f7612337b7f38!2zw5xza8O8ZGFyL8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1519733547760" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+<hr/>
+<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3154.0043491572437!2d29.068772075031475!3d37.76649621263823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzfCsDQ1JzU5LjQiTiAyOcKwMDQnMTYuOSJF!5e0!3m2!1str!2str!4v1691049609528!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</body>
+</html>
