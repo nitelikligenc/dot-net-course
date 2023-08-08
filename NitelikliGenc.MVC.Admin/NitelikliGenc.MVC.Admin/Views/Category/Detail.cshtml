@@ -1,0 +1,35 @@
+@model NitelikliGenc.MVC.Entities.Entities.Category
+@{
+  Layout = "_AdminLayout";
+}
+
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">
+        <i class="fas fa-text-width"></i>
+        Kategori Detay
+      </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <dl class="row">
+        <dt class="col-sm-4">Kategori ismi: </dt>
+        <dd class="col-sm-8">@Model.Name</dd>
+        <dt class="col-sm-4">Açıklama: </dt>
+        <dd class="col-sm-8">@Model.Description</dd>
+        <dt class="col-sm-4">Kategori Sırası: </dt>
+        <dd class="col-sm-8">@Model.Order</dd>
+        <dt class="col-sm-4">Oluşturulma Tarihi: </dt>
+        <dd class="col-sm-8">@Model.CreatedAt</dd>
+        <dt class="col-sm-4">Düzenleme Tarihi: </dt>
+        <dd class="col-sm-8">@Model.ModifiedAt</dd>
+      </dl>
+    </div>
+    <!-- /.card-body -->
+     <div class="card-footer">
+       <a type="button" href="@Url.Action("Index", "Category")" class="btn btn-primary">Geri</a>
+       </div>
+  </div>
+  <!-- /.card -->
+</div>

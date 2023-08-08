@@ -1,0 +1,34 @@
+@model NitelikliGenc.MVC.Entities.Entities.Category
+@{
+    ViewBag.Title = "title";
+    Layout = "_AdminLayout";
+}
+
+<div class="col-md-12">
+  <!-- general form elements -->
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Kategori Ekle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form asp-controller="Category" asp-action="Update" method="post">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="categoryName">Kategori İsmi</label>
+          <input name="Name" value="@Model.Name" type="text" class="form-control" id="categoryName" placeholder="Kategori ismi">
+        </div>
+        <div class="form-group">
+          <label for="description">Açıklama</label>
+          <input class="form-control" name="Description" id="description" value="@Model.Description" placeholder="Açıklama..."></input>
+        </div>
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer">
+        <a type="button" href="@Url.Action("Index", "Category")" class="btn btn-primary">Geri</a>
+        <button type="submit" class="btn btn-success">Düzenle</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.card -->
+</div>

@@ -1,3 +1,5 @@
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 using NitelikliGenc.MVC.Business.Services.Abstract;
 using NitelikliGenc.MVC.Business.Services.Concrete;
 using NitelikliGenc.MVC.DataAccess;
@@ -12,7 +14,21 @@ builder.Services.AddDbContext<DataContext>();
 builder.Services.AddScoped<IGenericRepository<Category>, GenericRepository<Category>>();
 builder.Services.AddScoped<IBaseService<Category>, BaseService<Category>>();
 
+builder.Services.AddDbContext<DataContext>(x =>
+    x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        option =>
+        {
+            option.MigrationsAssembly(Assembly.GetAssembly(typeof(DataContext))?.GetName().Name);
+        }
+    ));
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<DataContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

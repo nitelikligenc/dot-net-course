@@ -1,47 +1,57 @@
-@using NitelikliGenc.MVC.Admin.Controllers
-@model IEnumerable<NitelikliGenc.MVC.Entities.Entities.Category>
-<div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+@using NitelikliGenc.MVC.Entities.Entities
+@model IEnumerable<Category>
 
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+<div class="col-12 mb-3">
+  <div class="d-flex justify-content-between align-items-center pt-3">
+    <h3 class="card-title font-weight-bold">Kategoriler</h3>
+    <a href="@Url.Action("Create", "Category")" class="btn btn-success">Ekle</a>
+  </div>
+</div>
+<div class="col-12">
+  <div class="card">
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+      <table class="table table-hover text-nowrap">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Oluşturulma Tarihi</th>
+          <th style="width: 20%; text-align: center">İşlemler</th>
+        </tr>
+        </thead>
+        <tbody>
+        @{
+          foreach (var item in Model)
+          {
+            <tr>
+              <td>@item.Id</td>
+              <td>@item.Name</td>
+              <td>@item.Description</td>
+              <td>@item.CreatedAt</td>
+              <td class="project-actions text-right">
+                <a href="@Url.Action("Detail", "Category", new {id = item.Id})" class="btn btn-primary btn-sm">
+                  <i class="fas fa-folder"></i>Detay
+                </a>
+                <a class="btn btn-info btn-sm" href="@Url.Action("Update", "Category", new {id = item.Id})">
+                  <i class="fas fa-pencil-alt"></i>Düzenle
+                </a>
+                <form style="display: inline-block" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                  <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Sil</button>
+                </form>
+              </td>
+            </tr>
+          }
+        }
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
 
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                   @{
-                     foreach (var item in Model)
-                     {
-                       <tr>
-                         <td>@item.Id</td>
-                         <td>@item.Name</td>
-                       </tr>
-                     }
-                   }
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
+@* <form asp-action="Delete" asp-route-id="@item.Id" method="post"> *@
+@*   <input type="submit" value="Delete" /> *@
+@* </form> *@
