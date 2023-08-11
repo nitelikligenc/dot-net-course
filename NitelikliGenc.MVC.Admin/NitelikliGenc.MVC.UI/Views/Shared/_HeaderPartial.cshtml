@@ -4,18 +4,23 @@
 			<div class="row">
 				<div class="col-md-4 logo text-left">
 					<a class="navbar-brand" href="index.html">
-						<i class="fab fa-linode"></i> Weblog</a>
+						<i class="fab fa-linode"></i> NotNet Core Blog</a>
 				</div>
 				<div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
-					<span>Welcome Back!</span>
-					<span class="mx-lg-4 mx-md-2  mx-1">
-						<a href="login.html">
-							<i class="fas fa-lock"></i> Sign In</a>
-					</span>
-					<span>
-						<a href="register.html">
-							<i class="far fa-user"></i> Register</a>
-					</span>
+					@* @{ *@
+					@* 	if (!isLogin) *@
+					@* 	{ *@
+					@* 		<span class="mx-lg-4 mx-md-2  mx-1"> *@
+					@* 			<a href="@Url.Action("Login", "Auth")"> *@
+					@* 				<i class="fas fa-lock"></i> Giriş yap</a> *@
+					@* 		</span> *@
+					@* 		<span> *@
+					@* 			<a href="@Url.Action("Register","Auth")"> *@
+					@* 				<i class="far fa-user"></i> Kayıt ol</a> *@
+					@* 		</span> *@
+					@* 	}  *@
+					@* } *@
+
 				</div>
 				<div class="col-md-4 log-icons text-right">
 
@@ -59,42 +64,21 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home
+							<a class="nav-link" href="@Url.Action("Index","Home")">Anasayfa
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
-						</li>
-						<li class="nav-item dropdown active">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-							    aria-expanded="false">
-								Features
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#"></a>
-								<a class="dropdown-item" href="blog1.html">Standard Blog</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="blog2.html">2 Column Blog</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="blog3.html">3 Column Blog</a>
-
-							</div>
+							<a class="nav-link" href="@Url.Action("Index","Blog")">Bloglar</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contact</a>
+                        	<a class="nav-link" href="@Url.Action("Index","About")">Hakkımızda</a>
+                        </li>
+						<li class="nav-item">
+							<a class="nav-link" href="@Url.Action("Index","Contact")">İletişim</a>
 						</li>
 
 					</ul>
-					<form action="#" method="post" class="form-inline my-2 my-lg-0 header-search">
-						<input class="form-control mr-sm-2" type="search" placeholder="Search here..." name="Search" required="">
-						<button class="btn btn1 my-2 my-sm-0" type="submit">
-							<i class="fas fa-search"></i>
-						</button>
-					</form>
-
-
-
 				</div>
 			</nav>
 

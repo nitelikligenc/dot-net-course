@@ -1,8 +1,25 @@
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using NitelikliGenc.MVC.Business.Services.Abstract;
+using NitelikliGenc.MVC.DataAccess;
+using NitelikliGenc.MVC.DataAccess.Repositories;
+using NitelikliGenc.MVC.Entities.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataContext>();
+builder.Services.AddScoped<IGenericRepository<Contact>, IGenericRepository<Contact>>();
+builder.Services.AddScoped<IBaseService<Contact>, IBaseService<Contact>>();
 
+// builder.Services.AddDbContext<DataContext>(x =>
+//     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+//         option =>
+//         {
+//             option.MigrationsAssembly(Assembly.GetAssembly(typeof(DataContext))?.GetName().Name);
+//         }
+//     ));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

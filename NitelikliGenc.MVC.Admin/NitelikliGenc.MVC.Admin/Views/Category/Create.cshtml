@@ -1,3 +1,4 @@
+@model NitelikliGenc.MVC.Admin.Models.ViewModels.Category.CategoryCreateViewModel
 @{
     ViewBag.Title = "title";
     Layout = "_AdminLayout";
@@ -15,11 +16,11 @@
       <div class="card-body">
         <div class="form-group">
           <label for="categoryName">Kategori İsmi</label>
-          <input name="Name" type="text" class="form-control" id="categoryName" placeholder="Kategori ismi">
+          <input asp-for="Name" type="text" class="form-control" id="categoryName" placeholder="Kategori ismi">
         </div>
         <div class="form-group">
           <label for="description">Açıklama</label>
-          <textarea class="form-control" name="Description" id="description" cols="20" rows="10" placeholder="Açıklama..."></textarea>
+          <textarea class="form-control" asp-for="Description" id="description" cols="20" rows="5" placeholder="Açıklama..."></textarea>
         </div>
       </div>
       <!-- /.card-body -->

@@ -1,5 +1,5 @@
 @using NitelikliGenc.MVC.Entities.Entities
-@model IEnumerable<Category>
+@model IEnumerable<Category?>
 
 <div class="col-12 mb-3">
   <div class="d-flex justify-content-between align-items-center pt-3">
@@ -37,9 +37,12 @@
                 <a class="btn btn-info btn-sm" href="@Url.Action("Update", "Category", new {id = item.Id})">
                   <i class="fas fa-pencil-alt"></i>Düzenle
                 </a>
-                <form style="display: inline-block" asp-action="Delete" asp-route-id="@item.Id" method="post">
-                  <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Sil</button>
-                </form>
+                @* <form style="display: inline-block" asp-action="Delete" asp-route-id="@item.Id" method="post"> *@
+                  <button onclick="cateGoryDelete('@item.Id', '@item.Name', '@item.Description')" type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal">
+                    <i class="fas fa-trash"></i>Sil
+                  </button>
+                  @* <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Sil</button> *@
+                @* </form> *@
               </td>
             </tr>
           }
@@ -52,6 +55,46 @@
   <!-- /.card -->
 </div>
 
-@* <form asp-action="Delete" asp-route-id="@item.Id" method="post"> *@
-@*   <input type="submit" value="Delete" /> *@
-@* </form> *@
+
+<div class="modal fade" id="delete-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Kategori Sil</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id="catTagName"></p>
+              <p>Bu kategoriyi silmek istediğinize emin misiniz?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+              <button type="submit" id="delete" class="btn btn-danger">Sil</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+<!-- /.modal -->
+
+<script >
+function cateGoryDelete(id, name, description){
+  let catId = id;
+  document.getElementById('catTagName').innerText = name;
+  $('#delete').click(function (){
+    $.ajax({
+type: "POST",
+url: "/Category/Delete",
+data: { "id": catId },
+dataType: "json",
+  success: function () {
+                     window.onload();
+                  }
+  });
+  })
+}
+</script>
+      

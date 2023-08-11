@@ -13,6 +13,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>();
 builder.Services.AddScoped<IGenericRepository<Category>, GenericRepository<Category>>();
 builder.Services.AddScoped<IBaseService<Category>, BaseService<Category>>();
+builder.Services.AddScoped<IGenericRepository<Author>, GenericRepository<Author>>();
+builder.Services.AddScoped<IBaseService<Author>, BaseService<Author>>();
 
 builder.Services.AddDbContext<DataContext>(x =>
     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),

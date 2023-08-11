@@ -16,11 +16,13 @@
       <div class="card-body">
         <div class="form-group">
           <label for="categoryName">Kategori İsmi</label>
-          <input name="Name" value="@Model.Name" type="text" class="form-control" id="categoryName" placeholder="Kategori ismi">
+          <input asp-for="Name" type="text" class="form-control" id="categoryName" placeholder="Kategori ismi">
+          <span class="text-danger" asp-validation-for="Name"></span>
         </div>
         <div class="form-group">
           <label for="description">Açıklama</label>
-          <input class="form-control" name="Description" id="description" value="@Model.Description" placeholder="Açıklama..."></input>
+          <textarea class="form-control" asp-for="Description" id="description" cols="20" rows="5" placeholder="Açıklama..."></textarea>
+          <span class="text-danger" asp-validation-for="Description"></span>
         </div>
       </div>
       <!-- /.card-body -->

@@ -1,4 +1,6 @@
-	<link href="~/template/css/contact.css" rel='stylesheet' type='text/css' />	
+@model NitelikliGenc.MVC.Entities.Entities.Contact
+
+<link href="~/template/css/contact.css" rel='stylesheet' type='text/css' />	
 <section class="main-content-w3layouts-agileits">
 
 		<h3 class="tittle">Bizimle iletişime geçin</h3>
@@ -58,26 +60,22 @@
 		</div>
 		<div class="container">
 			<div class="contact_grid_right">
-				<form action="#" method="post">
+				<form method="post">
 					<div class="row contact_left_grid">
 						<div class="col-md-6 con-left">
 							<div class="form-group">
-								<label for="validationCustom01 my-2">İsim</label>
-								<input class="form-control" type="text" name="Name" placeholder="İsim" required="">
+								<label >Email</label>
+								<input class="form-control" type="email" asp-for="Mail" placeholder="Email" required="">
 							</div>
 							<div class="form-group">
-								<label for="exampleFormControlInput1">Email</label>
-								<input class="form-control" type="email" name="Email" placeholder="Email" required="">
-							</div>
-							<div class="form-group">
-								<label for="validationCustom03 my-2">Konu</label>
-								<input class="form-control" type="text" name="Subject" placeholder="Konu" required="">
+								<label >Konu</label>
+								<input class="form-control" type="text" asp-for="Subject" placeholder="Konu" required="">
 							</div>
 						</div>
 						<div class="col-md-6 con-right">
 							<div class="form-group">
-								<label for="textarea">Mesaj</label>
-								<textarea id="textarea" placeholder="Mesaj"></textarea>
+								<label >Mesaj</label>
+								<textarea id="textarea" asp-for="Message" placeholder="Mesaj"></textarea>
 							</div>
 							<button type="submit" class="btn btn-dark form-control">Gönder</button>
 

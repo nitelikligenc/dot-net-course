@@ -1,5 +1,9 @@
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NitelikliGenc.MVC.Admin.Models.ViewModels.Category;
 using NitelikliGenc.MVC.Business.Services.Abstract;
+using NitelikliGenc.MVC.Business.ValidatorRules;
 using NitelikliGenc.MVC.Entities.Entities;
 
 namespace NitelikliGenc.MVC.Admin.Controllers;
@@ -26,10 +30,15 @@ public class CategoryController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Category category)
+    public async Task<IActionResult> Create(CategoryCreateViewModel catViewModel)
     {
-        var _category = await _service.AddAsync(category);
-        return View(_category);
+        var cat = new Category
+        {
+            Description = catViewModel.Description,
+            Name = catViewModel.Name
+        };
+        await _service.AddAsync(cat);
+        return View(catViewModel);
     }
 
     [HttpGet]
@@ -70,7 +79,28 @@ public class CategoryController : Controller
     [HttpPost]
     public async Task<IActionResult> Update(Category category)
     {
-        var _category = await _service.UpdateAsync(category);
-        return View(_category);
+        CategoryUpdateValidator categoryUpdateValidator = new CategoryUpdateValidator();
+        ValidationResult result = categoryUpdateValidator.Validate(category);
+
+        if (!result.IsValid)
+        {
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+        }
+        else
+        {
+            await _service.UpdateAsync(category);
+            return RedirectToAction("Index");
+        }
+        
+        return View(category);
+    }
+    
+    public class ViewModel
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }
