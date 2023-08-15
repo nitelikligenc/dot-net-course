@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NitelikliGenc.MVC.Business.Services.Abstract;
 using NitelikliGenc.MVC.Entities.Entities;
 
 namespace NitelikliGenc.MVC.UI.Controllers;
 
+[Authorize(Policy = "RequireAdmin")]
 public class ContactController: Controller
 {
     private readonly IBaseService<Contact> _service;

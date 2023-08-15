@@ -1,10 +1,11 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NitelikliGenc.MVC.Entities.Entities;
 
 namespace NitelikliGenc.MVC.DataAccess;
 
-public class DataContext : DbContext
+public class DataContext : IdentityDbContext<User, Role, int>
 {
     private IConfiguration _configuration { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NitelikliGenc.MVC.Admin.Models;
 using NitelikliGenc.MVC.Business.Services.Abstract;
@@ -6,6 +7,7 @@ using NitelikliGenc.MVC.Entities.Entities;
 
 namespace NitelikliGenc.MVC.Admin.Controllers;
 
+[Authorize]
 public class HomeController : Controller
 {
     private readonly IBaseService<Category> _catService;

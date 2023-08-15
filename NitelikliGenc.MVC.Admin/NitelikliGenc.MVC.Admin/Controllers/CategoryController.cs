@@ -1,4 +1,5 @@
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NitelikliGenc.MVC.Admin.Models.ViewModels.Category;
@@ -8,6 +9,7 @@ using NitelikliGenc.MVC.Entities.Entities;
 
 namespace NitelikliGenc.MVC.Admin.Controllers;
 
+[Authorize]
 public class CategoryController : Controller
 {
     private readonly IBaseService<Category> _service;

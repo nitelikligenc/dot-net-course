@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using NitelikliGenc.MVC.Business.Services.Abstract;
 using NitelikliGenc.MVC.Business.Services.Concrete;
@@ -10,6 +11,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(opt =>
+        {
+            opt.LoginPath = "/Auth/Login";
+        }
+    );
+
+builder.Services.AddAuthorization(option =>
+{
+    option.AddPolicy("RequireAdmin", policy => policy.RequireRole("Admin"));
+});
+
 builder.Services.AddDbContext<DataContext>();
 builder.Services.AddScoped<IGenericRepository<Contact>, GenericRepository<Contact>>();
 builder.Services.AddScoped<IBaseService<Contact>, BaseService<Contact>>();
@@ -36,6 +50,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

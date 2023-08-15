@@ -24,13 +24,25 @@ builder.Services.AddDbContext<DataContext>(x =>
         }
     ));
 
-var app = builder.Build();
+builder.Services.AddIdentity<User, Role>().AddEntityFrameworkStores<DataContext>();
 
-using (var scope = app.Services.CreateScope())
+builder.Services.ConfigureApplicationCookie(options =>
 {
-    var db = scope.ServiceProvider.GetRequiredService<DataContext>();
-    db.Database.Migrate();
-}
+    options.LoginPath = new PathString("/Auth/Login");
+    options.LogoutPath = new PathString("/Auth/Logout");
+
+    options.Cookie = new CookieBuilder()
+    {
+        Name = "IdentityCookie",
+        HttpOnly = true,
+        SameSite = SameSiteMode.Lax,
+        SecurePolicy = CookieSecurePolicy.Always
+    };
+    options.SlidingExpiration = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+});
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -45,6 +57,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

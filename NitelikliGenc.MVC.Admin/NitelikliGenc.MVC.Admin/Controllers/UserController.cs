@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NitelikliGenc.MVC.Admin.Controllers;
 
+[Authorize]
 public class UserController: Controller
 {
     public UserController()
