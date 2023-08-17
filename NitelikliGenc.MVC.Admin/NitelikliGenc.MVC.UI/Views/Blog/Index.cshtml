@@ -1,5 +1,5 @@
 @using NitelikliGenc.MVC.UI.Controllers
-@model IEnumerable<BlogController.Article> 
+@model IEnumerable<NitelikliGenc.MVC.Entities.Entities.Blog> 
 
 <div class="banner-inner">
 </div>
@@ -16,30 +16,25 @@
 				{
 					
 						<div class="col-md-6 card">
-							<a href="~/template/single.html">
-								<img src="~/template/images/7.jpg" class="card-img-top img-fluid" alt="">
+							<a href="@Url.Action("BlogDetail", "Blog", new {id = item.Id})">
+								<img src="https://localhost:7082/files/@item.ImageUrl" class="card-img-top img-fluid" alt="">
 							</a>
 							<div class="card-body">
 								<ul class="blog-icons my-4">
 									<li>
 										<a href="#">
-											<i class="far fa-calendar-alt"></i> @item.Date</a>
+											<i class="far fa-calendar-alt"></i> @Convert.ToDateTime(item.CreatedAt).ToString("dd/MM/yyyy")</a>
 									</li>
 									<li class="mx-2">
 										<a href="#">
-											<i class="far fa-comment"></i> @item.CommentCount</a>
+											<i class="far fa-comment">@ViewBag.CommentCount</i></a>
 									</li>
-									<li>
-										<a href="#">
-											<i class="fas fa-eye"></i> @item.ViewCount</a>
-									</li>
-
 								</ul>
 								<h5 class="card-title ">
-									<a href="~/template/single.html"> @item.Title</a>
+									<a href="@Url.Action("BlogDetail", "Blog", new {id = item.Id})"> @item.Title</a>
 								</h5>
-								<p class="card-text mb-3">@item.Description</p>
-								<a href="/Blog/BlogDetail" class="btn btn-primary read-m">Read More</a>
+								<p class="card-text mb-3">@item.Content</p>
+								<a href="@Url.Action("BlogDetail", "Blog", new {id = item.Id})" class="btn btn-primary read-m">Detay</a>
 							</div>
 						</div>
 				}

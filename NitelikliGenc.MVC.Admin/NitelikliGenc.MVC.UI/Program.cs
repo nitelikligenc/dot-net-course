@@ -27,6 +27,8 @@ builder.Services.AddAuthorization(option =>
 builder.Services.AddDbContext<DataContext>();
 builder.Services.AddScoped<IGenericRepository<Contact>, GenericRepository<Contact>>();
 builder.Services.AddScoped<IBaseService<Contact>, BaseService<Contact>>();
+builder.Services.AddScoped<IGenericRepository<Blog>, GenericRepository<Blog>>();
+builder.Services.AddScoped<IBaseService<Blog>, BaseService<Blog>>();
 
 // builder.Services.AddDbContext<DataContext>(x =>
 //     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),

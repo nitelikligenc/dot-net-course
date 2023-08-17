@@ -1,28 +1,28 @@
-		<div class="container">
-			<h3 class="tittle">Blog Posts</h3>
+@model NitelikliGenc.MVC.Entities.Entities.Blog		
+
+<div class="container">
+			<h3 class="tittle">Blog Detay</h3>
 			<div class="row inner-sec">
 				<!--left-->
 			<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
 <div class="blog-grid-top">
 						<div class="b-grid-top">
 							<div class="blog_info_left_grid">
-								<a href="~/template/single.html">
-									<img src="~/template/images/b1.jpg" class="img-fluid" alt="">
-								</a>
+								<img src="https://localhost:7082/files/@Model.ImageUrl" class="img-fluid" alt="">
 							</div>
 							<div class="blog-info-middle">
 								<ul>
 									<li>
 										<a href="#">
-											<i class="far fa-calendar-alt"></i> FEB 15,2018</a>
+											<i class="far fa-calendar-alt"></i> @Convert.ToDateTime(Model.CreatedAt).ToString("dd/MM/yyyy")</a>
 									</li>
-									<li class="mx-2">
-										<a href="#">
-											<i class="far fa-thumbs-up"></i> 201 Likes</a>
-									</li>
+									@* <li class="mx-2"> *@
+									@* 	<a href="#"> *@
+									@* 		<i class="far fa-thumbs-up"></i> 201 Likes</a> *@
+									@* </li> *@
 									<li>
 										<a href="#">
-											<i class="far fa-comment"></i> 15 Comments</a>
+											<i class="far fa-comment"></i> @ViewBag.CommentCount</a>
 									</li>
 									
 								</ul>
@@ -30,13 +30,10 @@
 						</div>
 
 						<h3>
-							<a href="~/template/single.html">Amet consectetur adipisicing </a>
+							@Model.Title
 						</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-							aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco labor nisi ut aliquip exea commodo consequat duis
-							aute irudre dolor in elit sed uta labore dolore reprehender</p>
-						<a href="~/template/single.html" class="btn btn-primary read-m">Read More</a>
-					</div>
+	<p>@Model.Content</p>
+	</div>
 
 					<div class="comment-top">
 						<h4>Comments</h4>

@@ -15,6 +15,8 @@ builder.Services.AddScoped<IGenericRepository<Category>, GenericRepository<Categ
 builder.Services.AddScoped<IBaseService<Category>, BaseService<Category>>();
 builder.Services.AddScoped<IGenericRepository<Author>, GenericRepository<Author>>();
 builder.Services.AddScoped<IBaseService<Author>, BaseService<Author>>();
+builder.Services.AddScoped<IGenericRepository<Blog>, GenericRepository<Blog>>();
+builder.Services.AddScoped<IBaseService<Blog>, BaseService<Blog>>();
 
 builder.Services.AddDbContext<DataContext>(x =>
     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -39,7 +41,7 @@ builder.Services.ConfigureApplicationCookie(options =>
         SecurePolicy = CookieSecurePolicy.Always
     };
     options.SlidingExpiration = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(1000);
 });
 
 var app = builder.Build();
