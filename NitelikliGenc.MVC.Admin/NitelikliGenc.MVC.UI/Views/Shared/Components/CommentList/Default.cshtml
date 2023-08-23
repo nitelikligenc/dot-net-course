@@ -1,18 +1,25 @@
-@model TModel
-
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
+@model IEnumerable<NitelikliGenc.MVC.Entities.Entities.Comment>
+<div class="comment-top">
+	<h4>Yorumlar</h4>
+	@{
+		if (Model == null)
+		{
+			<div class="alert alert-info">
+				<i class="icon fas fa-info"> Henüz yorum yok. İlk yorumu siz eklemek ister misiniz?</i>
+			</div>
+		}
+		else
+		{
+			foreach (var item in Model)
+			{
+				<div class="media">
+					<img src="~/template/images/t1.jpg" alt="" class="img-fluid" />
+					<div class="media-body">
+						<h5 class="mt-0">@item.Title</h5>
+						<p>@item.Content</p>
+					</div>
+				</div>
+			}
+		}
+	}
 </div>
-</body>
-</html>

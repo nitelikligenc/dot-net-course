@@ -37,8 +37,8 @@ public class BlogController: Controller
             ViewBag.CommentCount = blog.Comments.Count();
         }
 
+        ViewBag.blogId = id;
         return View(blog);
     }
-    
     
 }

@@ -1,6 +1,9 @@
-namespace NitelikliGenc.MVC.Business.Services.Blog;
+using NitelikliGenc.MVC.Business.Services.Abstract;
+using NitelikliGenc.MVC.Entities.Entities;
 
-public interface IBlogService
+namespace NitelikliGenc.MVC.Business.Services.Blogs;
+
+public interface IBlogService: IBaseService<Blog>
 {
     
 }

@@ -29,6 +29,8 @@ builder.Services.AddScoped<IGenericRepository<Contact>, GenericRepository<Contac
 builder.Services.AddScoped<IBaseService<Contact>, BaseService<Contact>>();
 builder.Services.AddScoped<IGenericRepository<Blog>, GenericRepository<Blog>>();
 builder.Services.AddScoped<IBaseService<Blog>, BaseService<Blog>>();
+builder.Services.AddScoped<IGenericRepository<Comment>, GenericRepository<Comment>>();
+builder.Services.AddScoped<IBaseService<Comment>, BaseService<Comment>>();
 
 // builder.Services.AddDbContext<DataContext>(x =>
 //     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),

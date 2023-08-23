@@ -1,6 +1,8 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using NitelikliGenc.MVC.Business.Services.Abstract;
+using NitelikliGenc.MVC.Business.Services.Authorts;
+using NitelikliGenc.MVC.Business.Services.Blogs;
 using NitelikliGenc.MVC.Business.Services.Concrete;
 using NitelikliGenc.MVC.DataAccess;
 using NitelikliGenc.MVC.DataAccess.Repositories;
@@ -17,6 +19,10 @@ builder.Services.AddScoped<IGenericRepository<Author>, GenericRepository<Author>
 builder.Services.AddScoped<IBaseService<Author>, BaseService<Author>>();
 builder.Services.AddScoped<IGenericRepository<Blog>, GenericRepository<Blog>>();
 builder.Services.AddScoped<IBaseService<Blog>, BaseService<Blog>>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<IBlogService, BlogService>();
 
 builder.Services.AddDbContext<DataContext>(x =>
     x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),

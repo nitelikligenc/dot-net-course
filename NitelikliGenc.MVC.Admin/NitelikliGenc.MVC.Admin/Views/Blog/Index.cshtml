@@ -8,48 +8,64 @@
   </div>
 </div>
 <div class="col-12">
-  <div class="card">
+
     <!-- /.card-header -->
-    <div class="card-body table-responsive p-0">
-      <table class="table table-hover text-nowrap">
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>Başlık</th>
-          <th>İçerik</th>
-          <th>Oluşturulma Tarihi</th>
-          <th style="width: 20%; text-align: center">İşlemler</th>
-        </tr>
-        </thead>
-        <tbody>
-        @{
-          foreach (var item in Model)
-          {
+    @{
+      if (Model == null || Model.Count() == 0)
+      {
+        <div class="callout" style="width: auto; height: 50vh; margin: 5%">
+          <div class="text-center" style="padding: 9%">
+           Henüz eklenmiş blog yoktur. Yeni blog ekleme sayfasına gidiniz...
+          </div>
+        </div>
+      }
+      else
+      {
+        <div class="card">
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
             <tr>
-              <td>@item.Id</td>
-              <td>@item.Title</td>
-              <td>@item.Content</td>
-              <td>@item.CreatedAt</td>
-              <td class="project-actions text-right">
-                <a href="@Url.Action("Detail", "Category", new {id = item.Id})" class="btn btn-primary btn-sm">
-                  <i class="fas fa-folder"></i>Detay
-                </a>
-                <a class="btn btn-info btn-sm" href="@Url.Action("Update", "Category", new {id = item.Id})">
-                  <i class="fas fa-pencil-alt"></i>Düzenle
-                </a>
-                <button onclick="blogDelete('@item.Id', '@item.Title', '@item.Content')" type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal">
-                  <i class="fas fa-trash"></i>Sil
-                  </button>
-              </td>
+              <th>ID</th>
+              <th>Başlık</th>
+              <th>İçerik</th>
+              <th>Kategori</th>
+              <th>Oluşturulma Tarihi</th>
+              <th style="width: 20%; text-align: center">İşlemler</th>
             </tr>
-          }
-        }
-        </tbody>
-      </table>
-    </div>
+            </thead>
+            <tbody>
+            @{
+              foreach (var item in Model)
+              {
+                <tr>
+                  <td>@item.Id</td>
+                  <td>@item.Title</td>
+                  <td>@item.Content</td>
+                  <td>@item.Category.Name</td>
+                  <td>@item.CreatedAt</td>
+                  <td class="project-actions text-right">
+                    <a href="@Url.Action("Detail", "Category", new {id = item.Id})" class="btn btn-primary btn-sm">
+                      <i class="fas fa-folder"></i>Detay
+                    </a>
+                    <a class="btn btn-info btn-sm" href="@Url.Action("Update", "Category", new {id = item.Id})">
+                      <i class="fas fa-pencil-alt"></i>Düzenle
+                    </a>
+                    <button onclick="blogDelete('@item.Id', '@item.Title', '@item.Content')" type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal">
+                      <i class="fas fa-trash"></i>Sil
+                    </button>
+                  </td>
+                </tr>
+              }
+            }
+            </tbody>
+          </table>
+        </div>
+          </div>
+      }
+    }
     <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
+      <!-- /.card -->
 </div>
 
 

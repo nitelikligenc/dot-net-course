@@ -1,18 +1,51 @@
-@model TModel
-
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
+<div class="comment-top">
+    <h4>Yorum ekle</h4>
+    <div class="comment-bottom">
+        <form id="add" method="post">
+            <input class="form-control" type="hidden" name="BlogId" id="blogId" value="@Model">
+            <input class="form-control" type="text" name="Title" id="title" placeholder="Başlık" required="">
+            <textarea class="form-control" name="Content" content="content" placeholder="Yorum..." required=""></textarea>
+            <button  id="sendComment" type="submit" class="btn btn-primary submit">Gönder</button>
+        </form>
+    </div>
 </div>
-</body>
-</html>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $("#add").submit(function(e) {
+        console.log("clicked");
+      $.ajax({
+      type: "POST",
+      url: "/Comment/Create",
+      data: $(this).serialize(),
+      dataType: "json",
+        success: function (response) {
+          console.log("response success", response);
+          if (response.success) {
+              window.location.reload();
+          } else {
+              console.log("response error", response)
+              alert(response.message);
+          }
+        }
+      })
+    });
+    
+    // function getCommentList() {
+    //   $.ajax({
+    //   type: "GET",
+    //   url: "/CommentAdd",
+    //   data: $(this).serialize(),
+    //   dataType: "json",
+    //     success: function (response) {
+    //       console.log("response", response);
+    //       if (response.success) {
+    //          
+    //       } else {
+    //           alert("Hatalı dönüş");
+    //       }
+    //     }
+    //   })
+    // }
+
+</script>

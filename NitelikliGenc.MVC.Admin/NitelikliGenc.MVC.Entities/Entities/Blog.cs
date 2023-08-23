@@ -12,6 +12,5 @@ public class Blog : BaseEntity
     
     public int AuthorId { get; set; }
     public Author Author { get; set; }
-    
     public virtual ICollection<Comment> Comments { get; set; }
 }

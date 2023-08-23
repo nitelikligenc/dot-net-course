@@ -40,7 +40,7 @@ public class CategoryController : Controller
             Name = catViewModel.Name
         };
         await _service.AddAsync(cat);
-        return View(catViewModel);
+        return RedirectToAction("Index");
     }
 
     [HttpGet]
@@ -63,7 +63,7 @@ public class CategoryController : Controller
             return RedirectToPage("Index");
         }
         await _service.DeleteAsync(id);
-        return View("Index");
+        return RedirectToAction("Index");
     }
 
     [HttpGet]
