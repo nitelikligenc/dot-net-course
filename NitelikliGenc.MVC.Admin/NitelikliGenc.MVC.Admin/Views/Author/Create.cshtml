@@ -1,0 +1,57 @@
+@model NitelikliGenc.MVC.Entities.Entities.Author
+@{
+    ViewBag.Title = "title";
+    Layout = "_AdminLayout";
+}
+
+<div class="col-md-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Yazar Ekle</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form asp-controller="Author" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="userName">Kullanıcı adı</label>
+                    <input asp-for="FullName" type="text" class="form-control" id="userName" placeholder="Kullanıcı adı">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input asp-for="Email" type="text" class="form-control" id="email" placeholder="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Telefon Numarası</label>
+                    <input asp-for="Phone" type="text" class="form-control" id="phoneNumber" placeholder="Telefon Numarası">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Telefon Numarası</label>
+                    <select class="form-control" asp-for="Gender" id="gender">
+                        <option value="Male">Erkek</option>
+                        <option value="Female">Kadın</option>
+                        <option value="Other">Diğer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="about">Hakkında</label>
+                    <textarea class="form-control" asp-for="About" id="content" cols="20" rows="5" placeholder="Hakkında..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Profil Resmi</label>
+                    <input type="file" asp-for="ImageUrl" class="form-control-file" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <a type="button" href="@Url.Action("Index")" class="btn btn-primary">Geri</a>
+                <button type="submit" class="btn btn-success">Kaydet</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card -->
+</div>
+
